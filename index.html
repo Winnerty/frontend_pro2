@@ -1,45 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<link rel="icon" type="image/svg+xml" href="/vite.svg" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Vite App</title>
-		<style>
-			main {
-				min-height: 75dvh;
-			}
-		</style>
-	</head>
-	<body>
-		<header>
-			<nav class="navbar bg-body-tertiary">
-				<div class="container">
-					<a class="navbar-brand" href="#">Navbar</a>
-				</div>
-			</nav>
-		</header>
-		<main class="container"></main>
-		<footer class="py-3 my-4">
-			<ul class="nav justify-content-center border-bottom pb-3 mb-3">
-				<li class="nav-item">
-					<a href="#" class="nav-link px-2 text-body-secondary">Home</a>
-				</li>
-				<li class="nav-item">
-					<a href="#" class="nav-link px-2 text-body-secondary">Features</a>
-				</li>
-				<li class="nav-item">
-					<a href="#" class="nav-link px-2 text-body-secondary">Pricing</a>
-				</li>
-				<li class="nav-item">
-					<a href="#" class="nav-link px-2 text-body-secondary">FAQs</a>
-				</li>
-				<li class="nav-item">
-					<a href="#" class="nav-link px-2 text-body-secondary">About</a>
-				</li>
-			</ul>
-			<p class="text-center text-body-secondary">© 2024 Company, Inc</p>
-		</footer>
-		<script type="module" src="/main.js"></script>
-	</body>
+<head>
+	<meta charset="UTF-8" />
+	<link rel="icon" type="image/svg+xml" href="/vite.svg" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Steam Search App</title>
+	<style>
+		main {
+          min-height: 75dvh;
+        }
+	</style>
+</head>
+<body>
+<header>
+	<nav class="navbar bg-body-tertiary">
+		<div class="container">
+			<a class="navbar-brand" href="#">Steam Search</a>
+		</div>
+	</nav>
+</header>
+
+<main id="container" class="container">
+	<section class="search-section">
+		<input type="text" id="searchInput" placeholder="Search for games" />
+		<button id="searchButton">Search</button>
+	</section>
+
+	<div class="spinner-container d-none">
+		<div class="d-flex justify-content-center m-5">
+			<div class="spinner-border" role="status">
+				<span class="visually-hidden">Loading...</span>
+			</div>
+		</div>
+	</div>
+
+	<div class="p-2">
+		<div class="alert alert-warning m-auto d-none" role="alert">
+			No results found with this name...
+		</div>
+	</div>
+
+	<section class="result">
+		<h2>Here's the result for your search ...</h2>
+		<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-2 dynamic_data"></div>
+	</section>
+</main>
+
+<footer class="py-3 my-4">
+	<ul class="nav justify-content-center border-bottom pb-3 mb-3">
+		<li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
+		<li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
+	</ul>
+	<p class="text-center text-body-secondary">© 2024 Company, Inc</p>
+</footer>
+
+<script type="module" src="/main.js"></script>
+</body>
 </html>
