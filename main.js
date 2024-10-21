@@ -9,7 +9,7 @@ const baseUrl = import.meta.env.VITE_RAPIDAPI_HOST
 const apiKey = import.meta.env.VITE_RAPIDAPI_KEY;
 
 const fetchData = async (query) => {
-  const url = `${baseUrl}/search/${encodeURIComponent(query)}`;
+  const url = `${baseUrl}/search/${encodeURIComponent(query)}/page/1`;
   const options = {
     method: 'GET',
     headers: {
@@ -22,6 +22,7 @@ const fetchData = async (query) => {
     showSpinner();
     hideAlert();
     const response = await fetch(url, options);
+    // console.log(response);
 
     if (!response.ok) {
       const errorText = await response.text();
@@ -30,6 +31,7 @@ const fetchData = async (query) => {
     }
 
     const json = await response.json();
+
     handleData(json);
   } catch (error) {
     showAlert("An error occurred while fetching data.");
@@ -41,12 +43,15 @@ const fetchData = async (query) => {
 function handleData(data) {
   const dynamicDataContainer = document.querySelector(".dynamic_data");
   dynamicDataContainer.innerHTML = "";
+  
 
-  if (data && data.name && data.header_image) {
+  if (data.length) {
     data.forEach((game) => {
-      const gameName = game.name;
-      const gameImage = game.header_image;
-      const gameLink = `https://store.steampowered.com/app/${game.appid}`;
+      console.log(game);
+      
+      const gameName = game.title;
+      const gameImage = game.imgUrl;
+      const gameLink = game.url;
 
       dynamicDataContainer.innerHTML += `
         <div class="col">
